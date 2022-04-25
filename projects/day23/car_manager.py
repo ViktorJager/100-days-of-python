@@ -22,10 +22,10 @@ class CarManager(Turtle):
 
     def add_car(self):
         car = Turtle(shape="square")
+        car.penup()
         car.color("black", random.choice(COLORS))
         car.shapesize(stretch_wid=1, stretch_len=2)
         car.setheading(180)
-        car.penup()
 
         # Randomize position
         x_pos = 310
