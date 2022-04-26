@@ -1,0 +1,5 @@
+This is the old and boring text.
+
+
+This text was appended to this file with the append mode (mode='a')
+This text was appended to this file with the append mode (mode='a')
