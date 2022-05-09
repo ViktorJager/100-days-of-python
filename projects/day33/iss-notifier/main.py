@@ -1,4 +1,3 @@
-from operator import is_
 import requests
 from datetime import datetime
 import smtplib
