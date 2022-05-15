@@ -1,0 +1,5 @@
+{'bitcoin': {'usd': 30135, 'usd_market_cap': 573614270899.67, 'usd_24h_vol': 21154859062.57033, 'usd_24h_change': 0.9510818480137819, 'last_updated_at': 1652639683
+    }, 'cardano': {'usd': 0.561721, 'usd_market_cap': 19001839456.144928, 'usd_24h_vol': 812270952.7006731, 'usd_24h_change': 7.712599058739049, 'last_updated_at': 1652639642
+    }, 'ethereum': {'usd': 2084.94, 'usd_market_cap': 251709444459.71228, 'usd_24h_vol': 12301107225.623865, 'usd_24h_change': 3.10991526809775, 'last_updated_at': 1652639702
+    }
+}
