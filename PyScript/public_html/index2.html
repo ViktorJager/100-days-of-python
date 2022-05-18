@@ -1,0 +1,88 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <style>
+    h1 {
+      font-size: 64px;
+      color: rgb(128, 15, 0);
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 0 35px 0;
+      text-shadow: 0px 1px 0px #f2f2f2;
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    h4 {
+      text-align: center;
+      margin: 0 0 15px 0;
+    }
+
+    p {
+      text-align: center;
+    }
+  </style>
+  <py-env>
+  </py-env>
+</head>
+
+<body>
+  <hr size="3">
+  <h1>Kryptomania</h1>
+  <h4>0xE27859039E5b301CcFc1d346331521b706E3F571</h4>
+  <hr style="size: 3; margin: 20px; color: rgb(0, 0, 0);">
+  <p>
+    <py-script>
+      from pyodide.http import pyfetch
+      import asyncio
+
+
+      def create_crypto_ids_url(crypto_ids):
+      url = "?ids="
+      for crypto in crypto_ids:
+      url = url + f"{crypto}%2C"
+      return url[:-3]
+
+
+      coingecko_simple_price_endpoint = "https://api.coingecko.com/api/v3/simple/price"
+      crypto_ids = ["bitcoin","ethereum","cardano"]
+      vs_currency = "usd"
+
+      crypto_ids_url = create_crypto_ids_url(crypto_ids)
+      vs_currency_url = f"&vs_currencies={vs_currency}"
+      additional_data_url = "&include_24hr_change=true&include_market_cap=true"
+
+      request_url = (coingecko_simple_price_endpoint + crypto_ids_url + vs_currency_url + additional_data_url)
+
+      response = await pyfetch(url=request_url, method="GET")
+      crypto_data = await response.json()
+
+
+      print(f"Bitcoin | 💵 {round(crypto_data['bitcoin']['usd'])} usd | 📈
+      {round(crypto_data['bitcoin']['usd_24h_change'], 2)} | 🏦 {round(crypto_data['bitcoin']['usd_market_cap'] /
+      1000000)}m")
+      print(f"Ethereum | 💵 {round(crypto_data['ethereum']['usd'])} usd | 📈
+      {round(crypto_data['ethereum']['usd_24h_change'], 2)} | 🏦 {round(crypto_data['ethereum']['usd_market_cap'] /
+      1000000)}m")
+      print(f"Cardano | 💵 {round(crypto_data['cardano']['usd'], 2)} usd | 📈
+      {round(crypto_data['cardano']['usd_24h_change'], 2)} | 🏦 {round(crypto_data['cardano']['usd_market_cap'] /
+      1000000)}m")
+
+
+
+
+
+
+
+    </py-script>
+  </p>
+  <hr style="size: 3; margin: 800px 20px 0px 20px">
+  <p>PyScript</p>
+</body>
+
+</html>

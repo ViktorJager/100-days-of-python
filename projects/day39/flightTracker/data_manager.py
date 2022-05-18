@@ -16,7 +16,7 @@ class DataManager:
         data = response.json()
         self.destination_data = data["prices"]
         # 3. Try importing pretty print and printing the data out again using pprint() to see it formatted.
-        pprint(data)
+        print(data)
         
         return self.destination_data
 
